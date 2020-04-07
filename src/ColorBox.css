@@ -35,10 +35,11 @@
 
 .box-content {
   position: absolute;
-  width: 100%;
+  width: auto;
   left: 0;
   bottom: 0;
-  padding: 10px;
+  padding-left: 10px;
+  padding-bottom: 10px;
   color: black;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -49,8 +50,8 @@
   background: rgba(255,255,255,0.3);
   position: absolute;
   border: none;
-  right: 0;
-  bottom: 0;
+  right: 0px;
+  bottom: 0px;
   color: white;
   width: 60px;
   height: 30px;
