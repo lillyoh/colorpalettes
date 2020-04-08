@@ -4,6 +4,7 @@ import Palette from './Palette';
 import PaletteList from './PaletteList';
 import seedPalettes from './seedPalettes';
 import SingleColorPalette from './SingleColorPalette';
+import AddPalette from './AddPalette';
 
 import { generatePalette } from './colorHelpers';
 
@@ -16,6 +17,7 @@ class App extends React.Component {
   render() {
     return (
       <Switch>
+        <Route exact path='/palette/add' render={() => <AddPalette />}/>
         <Route
           exact
           path='/palette/:paletteId/:colorId'

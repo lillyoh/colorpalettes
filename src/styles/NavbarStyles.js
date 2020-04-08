@@ -3,7 +3,7 @@ export default {
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    height: '5vh'
+    height: '8vh'
   },
   logo: {
     marginRight: '15px',
