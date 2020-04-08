@@ -6,7 +6,7 @@ import MiniPalette from './MiniPalette';
 
 const styles = {
   root: {
-    backgroundColor: 'pink',
+    backgroundColor: 'blue',
     height: '100vh',
     display: 'flex',
     alignItems: 'flex-start',

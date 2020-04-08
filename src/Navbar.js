@@ -37,30 +37,32 @@ class Navbar extends React.Component {
         <div className='logo'>
           <Link to='/'>color picker</Link>
         </div>
+        {this.props.showAllColors && (
         <div className='slider-container'>
-          <span>Level: {level}</span>
-          <div className='slider'>
-          <Slider
-            defaultValue={level}
-            min={100}
-            max={900}
-            step={100}
-            onAfterChange={changeLevel}
-            handleStyle={{
-              backgroundColor: 'green',
-              outline: 'none',
-              border: '2px solid green',
-              boxShadow: 'none',
-              width: '13px',
-              height: '13px',
-              marginLeft: '-7px',
-              marginTop: '-3px'
-            }}
-            trackStyle={{ backgroundColor: 'transparent' }}
-            railStyle={{ height: 8 }}
-          />
+            <span>Level: {level}</span>
+            <div className='slider'>
+            <Slider
+              defaultValue={level}
+              min={100}
+              max={900}
+              step={100}
+              onAfterChange={changeLevel}
+              handleStyle={{
+                backgroundColor: 'green',
+                outline: 'none',
+                border: '2px solid green',
+                boxShadow: 'none',
+                width: '13px',
+                height: '13px',
+                marginLeft: '-7px',
+                marginTop: '-3px'
+              }}
+              trackStyle={{ backgroundColor: 'transparent' }}
+              railStyle={{ height: 8 }}
+            />
+          </div>
         </div>
-        </div>
+       )}
         <div className='select-container'>
           <Select value={format} onChange={this.handleFormatChange}>
             <MenuItem value='hex'>HEX - #fffff</MenuItem>
