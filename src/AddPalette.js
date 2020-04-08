@@ -131,6 +131,17 @@ class AddPalette extends React.Component {
     this.setState({ newName: e.target.value })
   }
 
+  handleSubmit = () => {
+    let newName='New Palette'
+    const newPalette = {
+      paletteName: newName,
+      id: newName.toLowerCase().replace(/ /g, "-"),
+      colors: this.state.colors
+    }
+    this.props.savePalette(newPalette);
+    this.props.history.push('/');
+  }
+
   render() {
     const { classes } = this.props;
     const { open, currentColor, colors } = this.state;
@@ -140,6 +151,7 @@ class AddPalette extends React.Component {
         <CssBaseline />
         <AppBar
           position="fixed"
+          color="default"
           className={clsx(classes.appBar, {
             [classes.appBarShift]: open,
           })}
@@ -157,6 +169,11 @@ class AddPalette extends React.Component {
             <Typography variant="h6" noWrap>
               Persistent drawer
             </Typography>
+            <Button
+              variant='contained'
+              color='primary'
+              onClick={this.handleSubmit}
+            >Save Palette</Button>
           </Toolbar>
         </AppBar>
         <Drawer

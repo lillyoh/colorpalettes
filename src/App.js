@@ -9,15 +9,26 @@ import AddPalette from './AddPalette';
 import { generatePalette } from './colorHelpers';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      palettes: seedPalettes
+    }
+  }
   findPalette = id => {
-    return seedPalettes.find(palette => {
+    return this.state.palettes.find(palette => {
       return palette.id === id
     })
   }
+
+  savePalette = newPalette => {
+    this.setState({ palettes: [...this.state.palettes, newPalette]})
+  }
+
   render() {
     return (
       <Switch>
-        <Route exact path='/palette/add' render={() => <AddPalette />}/>
+        <Route exact path='/palette/add' render={(routeProps) => <AddPalette savePalette={this.savePalette} {...routeProps}/>}/>
         <Route
           exact
           path='/palette/:paletteId/:colorId'
@@ -32,7 +43,7 @@ class App extends React.Component {
         />
         <Route exact path='/' render={(routeProps) =>
           <PaletteList
-            palettes={seedPalettes}
+            palettes={this.state.palettes}
             {...routeProps}
           />
           }
