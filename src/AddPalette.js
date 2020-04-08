@@ -1,5 +1,6 @@
 import React from 'react';
 import { ChromePicker } from 'react-color';
+import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 
 
 import clsx from 'clsx';
@@ -84,8 +85,23 @@ class AddPalette extends React.Component {
     this.state = {
       open: true,
       currentColor: 'blue',
-      colors: ['purple', '#eab321']
+      colors: [],
+      newName: ''
     }
+  }
+
+  componentDidMount() {
+    ValidatorForm.addValidationRule("isColorNameUnique", value =>
+      this.state.colors.every(
+      ({ name }) => name.toLowerCase() !== value.toLowerCase()
+    )
+  );
+
+  ValidatorForm.addValidationRule("isColorUnique", value =>
+  this.state.colors.every(
+  ({ color }) => color !== this.state.currentColor
+)
+);
   }
 
   handleDrawerOpen = () => {
@@ -101,10 +117,19 @@ class AddPalette extends React.Component {
   };
 
   addNewColor = () => {
+    const newColor = {
+      color: this.state.currentColor,
+      name: this.state.newName
+    }
     this.setState({
-      colors: [...this.state.colors, this.state.currentColor]
+      colors: [...this.state.colors, newColor],
+      newName: ''
     });
   };
+
+  handleChange = (e) => {
+    this.setState({ newName: e.target.value })
+  }
 
   render() {
     const { classes } = this.props;
@@ -159,14 +184,26 @@ class AddPalette extends React.Component {
               color={currentColor}
               onChangeComplete={this.updateCurrentColor}
           />
-          <Button
-            variant='contained'
-            color='primary'
-            style={{ backgroundColor: currentColor }}
-            onClick={this.addNewColor}
+          <ValidatorForm
+            onSubmit={this.addNewColor}
+            instantValidate={false}
           >
+            <TextValidator
+              value ={this.state.newName}
+              onChange={this.handleChange}
+              validators={["required", "isColorNameUnique", "isColorUnique"]}
+              errorMessages={["Color name has to be unique", "Color already saved"]}
+            />
+            <Button
+              variant='contained'
+              color='primary'
+              style={{ backgroundColor: currentColor }}
+              type='submit'
+            >
             Add Color
             </Button>
+          </ValidatorForm>
+
         </Drawer>
         <main
           className={clsx(classes.content, {
@@ -175,7 +212,7 @@ class AddPalette extends React.Component {
         >
           <div className={classes.drawerHeader} />
           {colors.map(color => (
-            <DraggableColorBox color={color} />
+            <DraggableColorBox color={color.color} name={color.name} />
           ))}
         </main>
       </div>
