@@ -1,10 +1,27 @@
 import React from 'react';
 import { ChromePicker } from 'react-color';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
+import { withStyles } from '@material-ui/core/styles';
 
 import Button from '@material-ui/core/Button';
 
-class ColorPickerSidebar extends React.Component {
+const styles = {
+  picker: {
+    width: '100%',
+    marginTop: '1rem'
+  },
+  addColorButton: {
+    width: '100%',
+    padding: '1rem',
+    marginTop: '1rem',
+    fontSize: '1rem'
+  },
+  colorNameInput: {
+    width: '100%'
+  }
+}
+
+class ColorPicker extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -47,14 +64,16 @@ class ColorPickerSidebar extends React.Component {
   }
 
   render() {
-    const { paletteIsFull } = this.props;
+    const { paletteIsFull, classes } = this.props;
     const { currentColor, newColorName } = this.state;
 
     return (
       <div>
         <ChromePicker
               color={currentColor}
+              width='100%'
               onChangeComplete={this.updateCurrentColor}
+              className={classes.picker}
           />
           <ValidatorForm
             onSubmit={this.handleSubmit}
@@ -63,9 +82,13 @@ class ColorPickerSidebar extends React.Component {
             <TextValidator
               value={newColorName}
               name='newColorName'
+              placeholder='Color Name'
+              variant='filled'
               onChange={this.handleChange}
               validators={["required", "colorNameUnique", "colorUnique"]}
               errorMessages={["Name this swatch", "Name already used", "Color already saved"]}
+              className={classes.colorNameInput}
+              margin='normal'
             />
             <Button
               variant='contained'
@@ -73,6 +96,7 @@ class ColorPickerSidebar extends React.Component {
               style={{ backgroundColor: paletteIsFull ? '#C0C3BC' : currentColor }}
               type='submit'
               disabled={paletteIsFull}
+              className={classes.addColorButton}
             >
               {paletteIsFull ? 'Palette Full' : 'Add Color'}
             </Button>
@@ -82,4 +106,4 @@ class ColorPickerSidebar extends React.Component {
   }
 }
 
-export default ColorPickerSidebar;
+export default withStyles(styles)(ColorPicker)

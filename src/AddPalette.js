@@ -12,10 +12,10 @@ import Button from '@material-ui/core/Button';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import DraggableColorList from './DraggableColorList';
 import NewPaletteNav from './NewPaletteNav';
-import ColorPickerSidebar from './ColorPickerSidebar';
+import ColorPicker from './ColorPicker';
 
 
-const drawerWidth = 400;
+const drawerWidth = 350;
 
 const styles = theme => ({
   root: {
@@ -29,10 +29,12 @@ const styles = theme => ({
   },
   drawer: {
     width: drawerWidth,
-    flexShrink: 0,
+    flexShrink: 0
   },
   drawerPaper: {
     width: drawerWidth,
+    display: 'flex',
+    alignItems: 'center'
   },
   drawerHeader: {
     display: 'flex',
@@ -59,6 +61,22 @@ const styles = theme => ({
     }),
     marginLeft: 0,
   },
+  drawerContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonContainer: {
+    width: '100%',
+    display: 'flex',
+    margin: '1rem',
+    justifyContent: 'space-around'
+  },
+  button: {
+    width: '46%',
+    fontSize: '10px'
+  }
 });
 
 
@@ -160,17 +178,33 @@ class AddPalette extends React.Component {
             </IconButton>
           </div>
           <Divider />
-
-          <Typography variant='h4'>Design Your Palette</Typography>
-          <div>
-            <Button variant='contained' color='secondary' onClick={this.clearColors}>Clear Palette</Button>
-            <Button variant='contained' color='primary' onClick={this.addRandomColor} disabled={paletteIsFull}>Random Color</Button>
+          <div className={classes.drawerContainer}>
+            <Typography variant='h5'>Add a Color</Typography>
+            <div className={classes.buttonContainer}>
+              <Button
+                variant='contained'
+                color='secondary'
+                onClick={this.clearColors}
+                className={classes.button}
+              >
+                Clear Palette
+              </Button>
+              <Button
+                variant='contained'
+                color='primary'
+                onClick={this.addRandomColor}
+                disabled={paletteIsFull}
+                className={classes.button}
+              >
+                Random Color
+              </Button>
+            </div>
+            <ColorPicker
+              paletteIsFull={paletteIsFull}
+              addNewColor={this.addNewColor}
+              colors={colors}
+            />
           </div>
-
-          <ColorPickerSidebar
-            paletteIsFull={paletteIsFull}
-            addNewColor={this.addNewColor}
-            colors={colors} />
         </Drawer>
         <main
           className={clsx(classes.content, {
