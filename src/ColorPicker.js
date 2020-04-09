@@ -5,21 +5,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 import Button from '@material-ui/core/Button';
 
-const styles = {
-  picker: {
-    width: '100%',
-    marginTop: '1rem'
-  },
-  addColorButton: {
-    width: '100%',
-    padding: '1rem',
-    marginTop: '1rem',
-    fontSize: '1rem'
-  },
-  colorNameInput: {
-    width: '100%'
-  }
-}
+import styles from './styles/ColorPickerStyles';
 
 class ColorPicker extends React.Component {
   constructor(props) {

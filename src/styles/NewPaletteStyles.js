@@ -1,22 +1,9 @@
-const drawerWidth = 350;
+import { DRAWER_WIDTH } from './constants';
+const drawerWidth = DRAWER_WIDTH;
 
 const styles = theme => ({
   root: {
     display: 'flex',
-  },
-  appBar: {
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-  },
-  appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -26,10 +13,12 @@ const styles = theme => ({
   },
   drawer: {
     width: drawerWidth,
-    flexShrink: 0,
+    flexShrink: 0
   },
   drawerPaper: {
     width: drawerWidth,
+    display: 'flex',
+    alignItems: 'center'
   },
   drawerHeader: {
     display: 'flex',
@@ -41,7 +30,7 @@ const styles = theme => ({
   },
   content: {
     flexGrow: 1,
-    height:
+    height: 'calc(100vh - 54px)',
     padding: theme.spacing(3),
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
@@ -56,6 +45,25 @@ const styles = theme => ({
     }),
     marginLeft: 0,
   },
+  drawerContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonContainer: {
+    width: '100%',
+    display: 'flex',
+    margin: '1rem',
+    justifyContent: 'space-around'
+  },
+  button: {
+    width: '46%',
+    fontSize: '10px'
+  }
 });
+
+
+
 
 export default styles;
