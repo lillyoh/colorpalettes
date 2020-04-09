@@ -81,12 +81,15 @@ const styles = theme => ({
 
 
 class AddPalette extends React.Component {
+  static defaultProps = {
+    maxColors: 20
+  }
   constructor(props) {
     super(props);
     this.state = {
       open: true,
       currentColor: '#A2CE52',
-      colors: [],
+      colors: this.props.palettes[0].colors,
       newColorName: '',
       newPaletteName: ''
     }
@@ -164,9 +167,23 @@ class AddPalette extends React.Component {
     }))
   }
 
+  clearColors = () => {
+    this.setState({ colors: [] })
+  }
+
+  addRandomColor = () => {
+    const randomHex = Math.floor(Math.random()*16777215).toString(16);
+    const randomColor = `#${randomHex}`;
+
+    this.setState({
+      currentColor: randomColor
+    });
+  }
+
   render() {
-    const { classes } = this.props;
+    const { classes, maxColors } = this.props;
     const { open, currentColor, colors } = this.state;
+    const paletteIsFull = colors.length >= maxColors;
 
     return (
       <div className={classes.root}>
@@ -226,8 +243,8 @@ class AddPalette extends React.Component {
 
           <Typography variant='h4'>Design Your Palette</Typography>
           <div>
-            <Button variant='contained' color='secondary'>Clear Palette</Button>
-            <Button variant='contained' color='primary'>Random Color</Button>
+            <Button variant='contained' color='secondary' onClick={this.clearColors}>Clear Palette</Button>
+            <Button variant='contained' color='primary' onClick={this.addRandomColor} disabled={paletteIsFull}>Random Color</Button>
           </div>
           <ChromePicker
               color={currentColor}
@@ -247,10 +264,11 @@ class AddPalette extends React.Component {
             <Button
               variant='contained'
               color='primary'
-              style={{ backgroundColor: currentColor }}
+              style={{ backgroundColor: paletteIsFull ? '#C0C3BC' : currentColor }}
               type='submit'
+              disabled={paletteIsFull}
             >
-            Add Color
+              {paletteIsFull ? 'Palette Full' : 'Add Color'}
             </Button>
           </ValidatorForm>
 
