@@ -11,7 +11,7 @@ import { generatePalette } from './colorHelpers';
 class App extends React.Component {
   constructor(props) {
     super(props);
-    const savedPalettes = JSON.parse(window.localStorage.getItem("palettes"));
+    const savedPalettes = JSON.parse(window.localStorage.getItem('palettes'));
     this.state = {
       palettes: savedPalettes || seedPalettes
     };
@@ -27,8 +27,14 @@ class App extends React.Component {
     this.setState({ palettes: [...this.state.palettes, newPalette]}, this.syncLocalStorage);
   }
 
+  deletePalette = id => {
+    this.setState({
+      palettes: this.state.palettes.filter(palette => palette.id !==id )
+    }, this.syncLocalStorage);
+  }
+
   syncLocalStorage = () => {
-    window.localStorage.setItem("palettes", JSON.stringify(this.state.palettes));
+    window.localStorage.setItem('palettes', JSON.stringify(this.state.palettes));
   }
 
   render() {
@@ -55,6 +61,7 @@ class App extends React.Component {
         <Route exact path='/' render={(routeProps) =>
           <PaletteList
             palettes={this.state.palettes}
+            deletePalette={this.deletePalette}
             {...routeProps}
           />
           }
