@@ -9,9 +9,9 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import MenuIcon from '@material-ui/icons/Menu';
+import AddCircleIcon from '@material-ui/icons/AddCircle';
 import SavePaletteForm  from './SavePaletteForm';
 
 import styles from './styles/NewPaletteNavStyles';
@@ -47,7 +47,7 @@ class NewPaletteNav extends React.Component {
           })}
         >
           <Toolbar>
-            <IconButton
+            <AddCircleIcon
               color="inherit"
               aria-label="open drawer"
               onClick={this.props.handleDrawerOpen}
@@ -55,7 +55,7 @@ class NewPaletteNav extends React.Component {
               className={clsx(classes.menuButton, open && classes.hide)}
             >
               <MenuIcon />
-            </IconButton>
+            </AddCircleIcon>
             <Typography variant="h6" noWrap>
               Create a Palette
             </Typography>

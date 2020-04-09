@@ -27,6 +27,9 @@ const styles = theme => ({
     marginLeft: 12,
     marginRight: 20
   },
+  hide: {
+    display: 'none',
+  },
   navButtons: {
     marginRight: '1rem',
     "& a": {

@@ -7,6 +7,7 @@ const styles = {
     display: 'inline-block',
     position: 'relative',
     cursor: 'pointer',
+    marginTop: '0px',
     marginBottom: '-3.5px',
     "&:hover svg": {
       color: 'white',
