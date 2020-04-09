@@ -27,6 +27,7 @@ const styles = theme => ({
     }),
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     height: '64px'
   },
   appBarShift: {
@@ -37,8 +38,18 @@ const styles = theme => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
   },
+  menuButton: {
+    marginLeft: 12,
+    marginRight: 20
+  },
   navButtons: {
-
+    marginRight: '1rem',
+    "& a": {
+      textDecoration: 'none'
+    }
+  },
+  button: {
+    margin: '0 0.5rem'
   }
 })
 
@@ -46,8 +57,17 @@ class NewPaletteNav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      newPaletteName: ''
+      newPaletteName: '',
+      formShowing: false
     }
+  }
+
+  showForm = () => {
+    this.setState({ formShowing: true })
+  }
+
+  hideForm = () => {
+    this.setState({ formShowing: false })
   }
 
 
@@ -79,15 +99,27 @@ class NewPaletteNav extends React.Component {
             </Typography>
           </Toolbar>
           <div className={classes.navButtons}>
-            <SavePaletteForm
-              palettes={palettes}
-              handleSubmit={handleSubmit}
-            />
-              <Button variant='contained' color='secondary'>
+              <Button variant='contained' color='secondary' className={classes.button}>
                 <Link to='/'>Go Back</Link>
+              </Button>
+
+              <Button
+                variant='contained'
+                color='primary'
+                onClick={this.showForm}
+                className={classes.button}
+              >
+                Save Palette
               </Button>
             </div>
         </AppBar>
+        { this.state.formShowing && (
+           <SavePaletteForm
+           palettes={palettes}
+           handleSubmit={handleSubmit}
+           hideForm={this.hideForm}
+         />
+        )}
       </div>
     );
   }

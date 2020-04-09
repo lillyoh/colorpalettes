@@ -15,7 +15,7 @@ class SavePaletteForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      open: false,
+      open: true,
       newPaletteName: ''
     };
   }
@@ -34,10 +34,6 @@ class SavePaletteForm extends React.Component {
     })
   }
 
-  handleClickOpen = () => {
-    this.setState({ open: true });
-  };
-
   handleClose = () => {
     this.setState({ open: false });
   };
@@ -45,22 +41,16 @@ class SavePaletteForm extends React.Component {
 
   render() {
     const { newPaletteName } = this.state;
+    const { handleSubmit, hideForm } = this.props;
     return (
-      <div>
-        <Button
-          variant="outlined"
-          color="primary"
-          onClick={this.handleClickOpen}
-        >
-          Save Palette
-        </Button>
+
         <Dialog
           open={this.state.open}
-          onClose={this.handleClose}
+          onClose={hideForm}
           aria-labelledby="form-dialog-title"
         >
           <DialogTitle id="form-dialog-title">Save Palette</DialogTitle>
-          <ValidatorForm onSubmit={() => this.props.handleSubmit(newPaletteName)}>
+          <ValidatorForm onSubmit={() => handleSubmit(newPaletteName)}>
           <DialogContent>
             <DialogContentText>
               What do you want to call your new Palette?
@@ -82,15 +72,15 @@ class SavePaletteForm extends React.Component {
               color='primary'
               type='submit'
             >
-              Save Palette
+              Save
             </Button>
-            <Button onClick={this.handleClose} color="primary">
+            <Button onClick={hideForm} color="primary">
               Cancel
             </Button>
           </DialogActions>
           </ValidatorForm>
         </Dialog>
-      </div>
+
     );
   }
 }
