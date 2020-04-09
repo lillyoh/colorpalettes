@@ -11,18 +11,24 @@ import { generatePalette } from './colorHelpers';
 class App extends React.Component {
   constructor(props) {
     super(props);
+    const savedPalettes = JSON.parse(window.localStorage.getItem("palettes"));
     this.state = {
-      palettes: seedPalettes
-    }
+      palettes: savedPalettes || seedPalettes
+    };
   }
+
   findPalette = id => {
     return this.state.palettes.find(palette => {
       return palette.id === id
-    })
+    });
   }
 
   savePalette = newPalette => {
-    this.setState({ palettes: [...this.state.palettes, newPalette]})
+    this.setState({ palettes: [...this.state.palettes, newPalette]}, this.syncLocalStorage);
+  }
+
+  syncLocalStorage = () => {
+    window.localStorage.setItem("palettes", JSON.stringify(this.state.palettes));
   }
 
   render() {
