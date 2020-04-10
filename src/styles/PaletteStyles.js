@@ -4,7 +4,8 @@ export default {
   Palette: {
     height: '100vh',
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    lineHeight: '0px'
   },
   colors: {
     height: '90%'

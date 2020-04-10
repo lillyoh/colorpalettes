@@ -31,8 +31,8 @@ const styles = theme => ({
   },
   content: {
     flexGrow: 1,
-    height: 'calc(100vh - 54px)',
-    padding: 0,
+    height: 'calc(100vh - 64px)',
+    lineHeight: '0px',
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,

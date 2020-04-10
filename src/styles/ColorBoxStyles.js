@@ -4,7 +4,6 @@ import sizes from './sizes';
 export default {
   ColorBox: {
     width: '20%',
-    height: '50%',
     height: props => props.showFullPalette ? '25%' : '50%',
     margin: '0 auto',
     display: 'inline-block',
@@ -70,11 +69,10 @@ export default {
   },
   boxContent: {
     position: 'absolute',
-    width: 'auto',
-    left: '0',
-    bottom: '0',
-    paddingLeft: '10px',
-    paddingBottom: '10px',
+    width: '100%',
+    left: '0px',
+    bottom: '0px',
+    padding: '12px',
     color: 'black',
     letterSpacing: '1px',
     textTransform: 'uppercase',
@@ -96,10 +94,10 @@ export default {
   },
   copyMessage: {
     position: 'fixed',
-    left: '0',
-    right: '0',
-    top: '0',
-    bottom: '0',
+    left: '0px',
+    right: '0px',
+    top: '0px',
+    bottom: '0px',
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
