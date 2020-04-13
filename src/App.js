@@ -5,7 +5,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import Palette from './Palette';
 import PaletteList from './PaletteList';
 import SingleColorPalette from './SingleColorPalette';
-import AddPalette from './AddPalette';
+import NewPalette from './NewPalette';
 import Page from './Page';
 
 import seedPalettes from './seedPalettes';
@@ -48,7 +48,7 @@ class App extends React.Component {
           <Switch location={location}>
             <Route exact path='/palette/add' render={(routeProps) => (
               <Page>
-              <AddPalette
+              <NewPalette
                 savePalette={this.savePalette}
                 palettes={this.state.palettes}
                 {...routeProps}/>

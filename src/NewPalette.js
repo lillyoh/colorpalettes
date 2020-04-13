@@ -16,7 +16,7 @@ import ColorPicker from './ColorPicker';
 import styles from './styles/NewPaletteStyles';
 import seedPalettes from './seedPalettes';
 
-class AddPalette extends React.Component {
+class NewPalette extends React.Component {
   static defaultProps = {
     maxColors: 20
   };
@@ -162,4 +162,4 @@ class AddPalette extends React.Component {
   }
 }
 
-export default withStyles(styles)(AddPalette);
+export default withStyles(styles)(NewPalette);
