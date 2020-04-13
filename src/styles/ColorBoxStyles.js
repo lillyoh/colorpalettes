@@ -108,7 +108,7 @@ export default {
     color: 'white',
     '& h1': {
       textAlign: 'center',
-      marginBottom: '0',
+      marginBottom: '2rem',
       padding: '1rem'
     }
   },

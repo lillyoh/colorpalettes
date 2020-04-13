@@ -29,7 +29,8 @@ export default {
     display: 'flex',
     alignItems: 'flex-start',
     flexDirection: 'column',
-    flexWrap: 'wrap'
+    flexWrap: 'wrap',
+    marginBottom: '5rem'
   },
   nav: {
     display: 'flex',

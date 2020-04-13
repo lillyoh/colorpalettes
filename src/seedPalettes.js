@@ -26,8 +26,8 @@ export default [
     ]
   },
   {
-    paletteName: "Flat UI Colors v1",
-    id: "flat-ui-colors-v1",
+    paletteName: "Flat UI Colors",
+    id: "flat-ui-colors",
     emoji: "🤙",
     colors: [
       { name: "Turquoise", color: "#1abc9c" },
