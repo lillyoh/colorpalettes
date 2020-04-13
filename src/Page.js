@@ -1,10 +1,10 @@
 import React from 'react';
-import './Page.css';
+import './styles/Page.css';
 
-const Page = props => {
+const Page = ({children}) => {
   return (
     <section className='page'>
-      {props.children}
+      {children}
     </section>
   );
 }

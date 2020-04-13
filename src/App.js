@@ -46,14 +46,19 @@ class App extends React.Component {
         <TransitionGroup>
           <CSSTransition key={location.key} classNames='fade' timeout={500}>
           <Switch location={location}>
-            <Route exact path='/palette/add' render={(routeProps) => (
-              <Page>
-              <NewPalette
-                savePalette={this.savePalette}
-                palettes={this.state.palettes}
-                {...routeProps}/>
-              </Page>
-              )} />
+            <Route
+              exact
+              path='/palette/add'
+              render={(routeProps) => (
+                <Page>
+                  <NewPalette
+                    savePalette={this.savePalette}
+                    palettes={this.state.palettes}
+                    {...routeProps}
+                  />
+                </Page>
+                )}
+              />
             <Route
               exact
               path='/palette/:paletteId/:colorId'
@@ -76,7 +81,7 @@ class App extends React.Component {
                   {...routeProps}
                 />
               </Page>
-            )}
+              )}
             />
             <Route
               exact

@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/styles';
+
 import ColorBox from './ColorBox';
 import Navbar from './Navbar';
 import PaletteFooter from './PaletteFooter';
+
 import styles from './styles/PaletteStyles';
 
 class SingleColorPalette extends React.Component {
@@ -20,15 +22,15 @@ class SingleColorPalette extends React.Component {
     let allColors = palette.colors;
     for (let key in allColors) {
       shades = shades.concat(allColors[key].filter(color => color.id===colorToFilterBy))
-    };
+    }
     return shades.slice(1);
-  }
+  };
 
   changeFormat = value => {
     this.setState({
       format: value
-    });
-  }
+    })
+  };
 
   render() {
     const { format } = this.state;
