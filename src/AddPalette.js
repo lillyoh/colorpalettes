@@ -14,6 +14,7 @@ import NewPaletteNav from './NewPaletteNav';
 import ColorPicker from './ColorPicker';
 
 import styles from './styles/NewPaletteStyles';
+import seedPalettes from './seedPalettes';
 
 class AddPalette extends React.Component {
   static defaultProps = {
@@ -25,7 +26,7 @@ class AddPalette extends React.Component {
     this.state = {
       open: true,
       currentColor: '#A2CE52',
-      colors: this.props.palettes[0].colors
+      colors: seedPalettes[0].colors
     };
   }
 
