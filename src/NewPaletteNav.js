@@ -40,23 +40,23 @@ class NewPaletteNav extends React.Component {
       <div>
          <CssBaseline className={classes.root} />
         <AppBar
-          position="fixed"
-          color="default"
+          position='fixed'
+          color='default'
           className={clsx(classes.appBar, {
             [classes.appBarShift]: open,
           })}
         >
-          <Toolbar>
+          <Toolbar disableGutters={!open}>
             <AddCircleIcon
-              color="inherit"
-              aria-label="open drawer"
+              color='inherit'
+              aria-label='open drawer'
               onClick={this.props.handleDrawerOpen}
-              edge="start"
+              edge='start'
               className={clsx(classes.menuButton, open && classes.hide)}
             >
               <MenuIcon />
             </AddCircleIcon>
-            <Typography variant="h6" noWrap>
+            <Typography variant='h6' color='inherit' noWrap>
               Create a Palette
             </Typography>
           </Toolbar>

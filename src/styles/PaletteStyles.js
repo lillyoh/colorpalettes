@@ -46,7 +46,7 @@ export default {
       width: "25%",
       height: "33.3333%"
     },
-    [sizes.down("md")]: {
+    [sizes.down("sm")]: {
       width: "50%",
       height: "20%"
     },

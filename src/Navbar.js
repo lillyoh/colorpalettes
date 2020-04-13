@@ -40,7 +40,7 @@ class Navbar extends React.Component {
         </div>
         {this.props.showAllColors && (
         <div>
-          <span>Level: {level}</span>
+          <span className={classes.level}>Level: {level}</span>
           <div className={classes.slider}>
           <Slider
             defaultValue={level}
@@ -66,9 +66,9 @@ class Navbar extends React.Component {
        )}
         <div className={classes.selectContainer}>
           <Select value={format} onChange={this.handleFormatChange}>
-            <MenuItem value='hex'>HEX - #fffff</MenuItem>
+            <MenuItem value='hex'>HEX - #FFF</MenuItem>
             <MenuItem value='rgb'>RGB - rgb(255,255,255)</MenuItem>
-            <MenuItem value='rgba'>RGBA - rgba(255,255,255,1.0)</MenuItem>
+            <MenuItem value='rgba'>RGBA - rgba(255,255,255,1)</MenuItem>
           </Select>
         </div>
         <Snackbar

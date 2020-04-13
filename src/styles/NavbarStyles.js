@@ -30,9 +30,12 @@ export default {
     width: '340px',
     margin: '0px 20px',
     display: 'inline-block',
-      [sizes.down('xs')]: {
-        width: '150px'
+      [sizes.down('sm')]: {
+        width: '180px'
       }
   },
+  level: {
+    marginLeft: '10px'
+  }
 
 }

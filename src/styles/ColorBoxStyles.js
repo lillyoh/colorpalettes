@@ -14,11 +14,11 @@ export default {
       opacity: '1',
       transition: '0.5s'
     },
-    [sizes.down('lg')]: {
+    [sizes.down('md')]: {
       width: '25%',
       height: props => props.showFullPalette ? '20%' : '33.33%',
     },
-    [sizes.down('md')]: {
+    [sizes.down('sm')]: {
       width: '50%',
       height: props => props.showFullPalette ? '10%' : '20%',
     },
