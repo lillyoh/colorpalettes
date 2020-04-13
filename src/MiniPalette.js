@@ -4,15 +4,19 @@ import { withStyles } from '@material-ui/styles';
 import styles from './styles/MiniPaletteStyles';
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline';
 
-class MiniPalette extends React.Component {
+class MiniPalette extends React.PureComponent {
 
   deletePalette = e => {
     e.stopPropagation();
     this.props.openDialog(this.props.id)
   }
 
+  handleClick = () => {
+    this.props.goToPalette(this.props.id)
+  }
+
   render() {
-    const { classes, paletteName, emoji, colors, handleClick } = this.props;
+    const { classes, paletteName, emoji, colors } = this.props;
 
     const miniColorBoxes = colors.map(color => (
       <div
@@ -23,7 +27,7 @@ class MiniPalette extends React.Component {
     ));
 
     return (
-      <div className={classes.root} onClick={handleClick}>
+      <div className={classes.root} onClick={this.handleClick}>
         <DeleteOutlineIcon
           className={classes.deleteIcon}
           onClick={this.deletePalette}

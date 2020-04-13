@@ -51,7 +51,7 @@ class PaletteList extends React.Component {
                     key={palette.id}
                     id={palette.id}
                     openDialog={this.toggleDialog}
-                    handleClick={() => this.goToPalette(palette.id)}
+                    goToPalette={this.goToPalette}
                   />
                 </CSSTransition>
               ))}
