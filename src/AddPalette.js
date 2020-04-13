@@ -38,7 +38,6 @@ class AddPalette extends React.Component {
     this.setState({ open: false });
   };
 
-
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
@@ -76,11 +75,16 @@ class AddPalette extends React.Component {
   };
 
   addRandomColor = () => {
-    const randomHex = Math.floor(Math.random()*16777215).toString(16);
-    const randomColor = `#${randomHex}`;
-    this.setState({
-      currentColor: randomColor
-    });
+    const allColors = this.props.palettes.map(p => p.colors).flat();
+    let random = Math.floor(Math.random() * allColors.length);
+    let randomColor = allColors[random];
+    let isDuplicateColor = true;
+    while(isDuplicateColor) {
+      random = Math.floor(Math.random() * allColors.length);
+      randomColor = allColors[random];
+      isDuplicateColor = this.state.colors.some(color => color.name === randomColor.name);
+    }
+    this.setState( { colors: [...this.state.colors, randomColor] });
   };
 
   render() {
