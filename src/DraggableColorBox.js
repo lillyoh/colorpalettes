@@ -1,9 +1,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/styles';
 import { SortableElement } from 'react-sortable-hoc'
-
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
-
 import styles from './styles/DraggableColorBoxStyles';
 
 const DraggableColorBox = SortableElement(props => {

@@ -2,9 +2,7 @@ import React from 'react';
 import { ChromePicker } from 'react-color';
 import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import { withStyles } from '@material-ui/core/styles';
-
 import Button from '@material-ui/core/Button';
-
 import styles from './styles/ColorPickerStyles';
 
 class ColorPicker extends React.Component {
@@ -13,7 +11,7 @@ class ColorPicker extends React.Component {
     this.state = {
       currentColor: '#A2CE52',
       newColorName: ''
-    }
+    };
   }
 
   componentDidMount() {
@@ -37,8 +35,8 @@ class ColorPicker extends React.Component {
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
-    })
-  }
+    });
+  };
 
   handleSubmit = () => {
     const newColor = {
@@ -47,46 +45,45 @@ class ColorPicker extends React.Component {
     };
     this.props.addNewColor(newColor);
     this.setState({ newColorName: '' });
-  }
+  };
 
   render() {
     const { paletteIsFull, classes } = this.props;
     const { currentColor, newColorName } = this.state;
-
     return (
       <div>
         <ChromePicker
-              color={currentColor}
-              width='100%'
-              onChangeComplete={this.updateCurrentColor}
-              className={classes.picker}
+          color={currentColor}
+          width='100%'
+          onChangeComplete={this.updateCurrentColor}
+          className={classes.picker}
+        />
+        <ValidatorForm
+          onSubmit={this.handleSubmit}
+          instantValidate={false}
+        >
+          <TextValidator
+            value={newColorName}
+            name='newColorName'
+            placeholder='Color Name'
+            variant='filled'
+            onChange={this.handleChange}
+            validators={['required', 'colorNameUnique', 'colorUnique']}
+            errorMessages={['Name this swatch', 'Name already used', 'Color already saved']}
+            className={classes.colorNameInput}
+            margin='normal'
           />
-          <ValidatorForm
-            onSubmit={this.handleSubmit}
-            instantValidate={false}
+          <Button
+            variant='contained'
+            color='primary'
+            style={{ backgroundColor: paletteIsFull ? '#C0C3BC' : currentColor }}
+            type='submit'
+            disabled={paletteIsFull}
+            className={classes.addColorButton}
           >
-            <TextValidator
-              value={newColorName}
-              name='newColorName'
-              placeholder='Color Name'
-              variant='filled'
-              onChange={this.handleChange}
-              validators={["required", "colorNameUnique", "colorUnique"]}
-              errorMessages={["Name this swatch", "Name already used", "Color already saved"]}
-              className={classes.colorNameInput}
-              margin='normal'
-            />
-            <Button
-              variant='contained'
-              color='primary'
-              style={{ backgroundColor: paletteIsFull ? '#C0C3BC' : currentColor }}
-              type='submit'
-              disabled={paletteIsFull}
-              className={classes.addColorButton}
-            >
-              {paletteIsFull ? 'Palette Full' : 'Add Color'}
-            </Button>
-          </ValidatorForm>
+            {paletteIsFull ? 'Palette Full' : 'Add Color'}
+          </Button>
+        </ValidatorForm>
       </div>
     );
   }

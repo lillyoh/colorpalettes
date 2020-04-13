@@ -1,8 +1,6 @@
 import React from 'react';
-
 import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
-
 import clsx from 'clsx';
 
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -20,25 +18,24 @@ class NewPaletteNav extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      newPaletteName: '',
       formShowing: false
-    }
+    };
   }
 
   showForm = () => {
     this.setState({ formShowing: true })
-  }
+  };
 
   hideForm = () => {
     this.setState({ formShowing: false })
-  }
+  };
 
   render() {
-    const { open, classes, palettes, handleSubmit } = this.props;
-
+    const { open, classes, palettes, handleSubmit, handleDrawerOpen } = this.props;
+    const { formShowing } = this.state;
     return (
       <div>
-         <CssBaseline className={classes.root} />
+        <CssBaseline className={classes.root} />
         <AppBar
           position='fixed'
           color='default'
@@ -50,7 +47,7 @@ class NewPaletteNav extends React.Component {
             <AddCircleIcon
               color='inherit'
               aria-label='open drawer'
-              onClick={this.props.handleDrawerOpen}
+              onClick={handleDrawerOpen}
               edge='start'
               className={clsx(classes.menuButton, open && classes.hide)}
             >
@@ -74,7 +71,7 @@ class NewPaletteNav extends React.Component {
               </Button>
             </div>
         </AppBar>
-        { this.state.formShowing && (
+        {formShowing && (
            <SavePaletteForm
            palettes={palettes}
            handleSubmit={handleSubmit}

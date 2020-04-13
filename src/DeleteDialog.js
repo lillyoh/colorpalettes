@@ -1,5 +1,6 @@
-
 import React from 'react';
+import blue from '@material-ui/core/colors/blue';
+import red from '@material-ui/core/colors/red';
 
 import Dialog from '@material-ui/core/Dialog';
 import DialogTitle from '@material-ui/core/DialogTitle';
@@ -10,9 +11,6 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemText from '@material-ui/core/ListItemText';
 import CheckIcon from '@material-ui/icons/Check';
 import CloseIcon from '@material-ui/icons/Close';
-
-import blue from '@material-ui/core/colors/blue';
-import red from '@material-ui/core/colors/red';
 
 const DeleteDialog = (props) => {
   const { openDeleteDialog, toggleDialog, handleDelete } = props;
@@ -38,7 +36,7 @@ const DeleteDialog = (props) => {
             </ListItem>
           </List>
         </Dialog>
-  )
+  );
 }
 
 export default DeleteDialog;

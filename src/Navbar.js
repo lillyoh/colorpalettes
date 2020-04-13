@@ -18,27 +18,27 @@ class Navbar extends React.Component {
     this.state = {
       format: 'hex',
       open: false
-    }
+    };
   }
 
   handleFormatChange = (e) => {
     this.setState({ format: e.target.value, open: true });
     this.props.handleChange(e.target.value);
-  }
+  };
 
   closeSnackbar = () => {
     this.setState({ open: false });
-  }
+  };
 
   render() {
-    const { level, changeLevel, classes } = this.props;
-    const { format } = this.state;
+    const { level, changeLevel, classes, showAllColors } = this.props;
+    const { format, open } = this.state;
     return (
       <header className={classes.Navbar}>
         <div className={classes.logo}>
           <Link to='/'>color picker</Link>
         </div>
-        {this.props.showAllColors && (
+        {showAllColors && (
         <div>
           <span className={classes.level}>Level: {level}</span>
           <div className={classes.slider}>
@@ -72,22 +72,21 @@ class Navbar extends React.Component {
           </Select>
         </div>
         <Snackbar
-          anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-          open={this.state.open}
+          anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
+          open={open}
           autoHideDuration={3000}
-          message={<span id="message-id">Format Changed to {format.toUpperCase()}</span>}
-          ContentProps={{ "aria-describedby": "message-id"
+          message={<span id='message-id'>Format Changed to {format.toUpperCase()}</span>}
+          ContentProps={{ 'aria-describedby': 'message-id'
           }}
           onClose={this.closeSnackbar}
           action={[
-            <IconButton onClick={this.closeSnackbar} color="inherit" key="close" aria-label="close">
+            <IconButton onClick={this.closeSnackbar} color='inherit' key='close' aria-label='close'>
               <CloseIcon />
             </IconButton>
           ]}
         />
-
       </header>
-    )
+    );
   }
 }
 

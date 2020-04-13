@@ -1,6 +1,5 @@
 import React from 'react';
 import { arrayMove } from 'react-sortable-hoc';
-
 import clsx from 'clsx';
 import { withStyles } from '@material-ui/core/styles';
 
@@ -19,14 +18,15 @@ import styles from './styles/NewPaletteStyles';
 class AddPalette extends React.Component {
   static defaultProps = {
     maxColors: 20
-  }
+  };
+
   constructor(props) {
     super(props);
     this.state = {
       open: true,
       currentColor: '#A2CE52',
       colors: this.props.palettes[0].colors
-    }
+    };
   }
 
   handleDrawerOpen = () => {
@@ -41,15 +41,15 @@ class AddPalette extends React.Component {
   handleChange = (e) => {
     this.setState({
       [e.target.name]: e.target.value
-    })
-  }
+    });
+  };
 
   handleSubmit = (newPalette) => {
     newPalette.id = newPalette.paletteName.toLowerCase().replace(/ /g, "-");
     newPalette.colors = this.state.colors;
     this.props.savePalette(newPalette);
     this.props.history.push('/');
-  }
+  };
 
   addNewColor = (newColor) => {
     this.setState({
@@ -61,27 +61,26 @@ class AddPalette extends React.Component {
   removeColor = (colorName) => {
     this.setState({
       colors: this.state.colors.filter(color => color.name !== colorName)
-    })
-  }
+    });
+  };
 
   onSortEnd = ({ oldIndex, newIndex }) => {
     this.setState(({ colors }) => ({
       colors: arrayMove(colors, oldIndex, newIndex)
-    }))
-  }
+    }));
+  };
 
   clearColors = () => {
     this.setState({ colors: [] })
-  }
+  };
 
   addRandomColor = () => {
     const randomHex = Math.floor(Math.random()*16777215).toString(16);
     const randomColor = `#${randomHex}`;
-
     this.setState({
       currentColor: randomColor
     });
-  }
+  };
 
   render() {
     const { classes, maxColors, palettes} = this.props;

@@ -33,39 +33,37 @@ class SavePaletteForm extends React.Component {
     this.setState({
       [e.target.name]: e.target.value
     });
-  }
+  };
 
   handleClose = () => {
     this.setState({ open: false });
-  }
+  };
 
   showEmojiPicker = () => {
-    this.setState({ phase: 'chooseEmoji'})
-  }
+    this.setState({ phase: 'chooseEmoji' })
+  };
 
   selectEmoji = (emoji) => {
     this.setState({ emoji: emoji.native })
-  }
+  };
 
   savePalette = () => {
     const newPalette = {
       paletteName: this.state.newPaletteName,
       emoji: this.state.emoji
-    }
-    this.props.handleSubmit(newPalette)
-    this.setState({ phase: '' })
-  }
-
+    };
+    this.props.handleSubmit(newPalette);
+    this.setState({ phase: '' });
+  };
 
   render() {
-    const { newPaletteName } = this.state;
+    const { newPaletteName, phase } = this.state;
     const { hideForm } = this.props;
     return (
       <>
       <Dialog
-        open={this.state.phase==='chooseEmoji'}
+        open={phase==='chooseEmoji'}
         onClose={hideForm}
-
       >
         <Picker
           onSelect={this.selectEmoji}
@@ -87,9 +85,8 @@ class SavePaletteForm extends React.Component {
           </Button>
           </DialogActions>
       </Dialog>
-
       <Dialog
-        open={this.state.phase==='chooseName'}
+        open={phase==='chooseName'}
         onClose={hideForm}
         aria-labelledby="form-dialog-title"
       >
@@ -99,7 +96,6 @@ class SavePaletteForm extends React.Component {
           <DialogContentText>
             What do you want to call your new Palette?
           </DialogContentText>
-
           <TextValidator
             autoFocus
             label="Palette Name"
