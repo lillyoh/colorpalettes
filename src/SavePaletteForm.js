@@ -53,6 +53,7 @@ class SavePaletteForm extends React.Component {
       emoji: this.state.emoji
     }
     this.props.handleSubmit(newPalette)
+    this.setState({ phase: '' })
   }
 
 
@@ -100,6 +101,7 @@ class SavePaletteForm extends React.Component {
           </DialogContentText>
 
           <TextValidator
+            autoFocus
             label="Palette Name"
             value={newPaletteName}
             name='newPaletteName'
