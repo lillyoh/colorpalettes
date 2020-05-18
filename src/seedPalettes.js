@@ -1,6 +1,6 @@
 export default [
   {
-    paletteName: "Material UI Colors",
+    paletteName: "Mendocino",
     id: "material-ui-colors",
     emoji: "🎨",
     colors: [
@@ -26,7 +26,7 @@ export default [
     ]
   },
   {
-    paletteName: "Flat UI Colors",
+    paletteName: "Point Arena",
     id: "flat-ui-colors",
     emoji: "🤙",
     colors: [
@@ -53,9 +53,9 @@ export default [
     ]
   },
   {
-    paletteName: "Flat UI Colors Dutch",
-    id: "flat-ui-colors-dutch",
-    emoji: "🇳🇱",
+    paletteName: "Big Sur",
+    id: "big-sur",
+    emoji: "☀️",
     colors: [
       { name: "Sunflower", color: "#FFC312" },
       { name: "Energos", color: "#C4E538" },
@@ -80,9 +80,9 @@ export default [
     ]
   },
   {
-    paletteName: "Flat UI Colors American",
-    id: "flat-ui-colors-american",
-    emoji: "🇺🇸",
+    paletteName: "San Francisco",
+    id: "san-francisco",
+    emoji: "🌉",
     colors: [
       { name: "LightGreenishBlue", color: "#55efc4" },
       { name: "FadedPoster", color: "#81ecec" },
@@ -107,9 +107,9 @@ export default [
     ]
   },
   {
-    paletteName: "Flat UI Colors Aussie",
-    id: "flat-ui-colors-aussie",
-    emoji: "🇦🇺",
+    paletteName: "Sonoma Coast",
+    id: "sonoma-coast",
+    emoji: "⛰️",
     colors: [
       { name: "Beekeeper", color: "#f6e58d" },
       { name: "SpicedNectarine", color: "#ffbe76" },
@@ -134,9 +134,9 @@ export default [
     ]
   },
   {
-    paletteName: "Flat UI Colors British",
-    id: "flat-ui-colors-british",
-    emoji: "🇬🇧",
+    paletteName: "Palm Springs",
+    id: "palm-springs",
+    emoji: "🌴",
     colors: [
       { name: "ProtossPylon", color: "#00a8ff" },
       { name: "Periwinkle", color: "#9c88ff" },
@@ -161,9 +161,9 @@ export default [
     ]
   },
   {
-    paletteName: "Flat UI Colors Spanish",
-    id: "flat-ui-colors-spanish",
-    emoji: "🇪🇸",
+    paletteName: "Guerneville",
+    id: "guerneville",
+    emoji: "🌲",
     colors: [
       { name: "JacksonsPurple", color: "#40407a" },
       { name: "C64Purple", color: "#706fd3" },
@@ -188,9 +188,9 @@ export default [
     ]
   },
   {
-    paletteName: "Flat UI Colors Indian",
-    id: "flat-ui-colors-indian",
-    emoji: "🇮🇳",
+    paletteName: "San Onofre",
+    id: "san-onofre",
+    emoji: "🏄‍♀️",
     colors: [
       { name: "OrchidOrange", color: "#FEA47F" },
       { name: "SpiroDiscoBall", color: "#25CCF7" },
@@ -215,9 +215,9 @@ export default [
     ]
   },
   {
-    paletteName: "Flat UI Colors French",
-    id: "flat-ui-colors-french",
-    emoji: "🇫🇷",
+    paletteName: "Bodega Bay",
+    id: "bodega-bay",
+    emoji: "🌊",
     colors: [
       { name: "FlatFlesh", color: "#fad390" },
       { name: "MelonMelody", color: "#f8c291" },

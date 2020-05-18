@@ -16,9 +16,9 @@ export default {
     display: 'flex',
     alignItems: 'flex-start',
     justifyContent: 'center',
-    backgroundColor: '#371daa',
-    backgroundImage: `url(${bg})`,
-    /* background by SVGBackgrounds.com */
+    backgroundColor: 'navy',
+    // backgroundImage: `url(${bg})`,
+    // /* background by SVGBackgrounds.com */
     overflow: 'scroll'
   },
   heading: {
