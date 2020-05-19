@@ -26,3 +26,4 @@ A color picker and palettes tool built with React.js and Material UI.
 - Drag and drop boxes using React Sortable HOC
 - Emoji picker from Emoji Mart
 - React and Material Design tutorials by Colt Steele
+- This project is a clone of the Flat UI Colors Tool 
